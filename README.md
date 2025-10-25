@@ -50,21 +50,35 @@ Given an **input image** and an **age prompt** (e.g., *“Person A at 60 years o
 
 ## ⚡ Quick Run (Summary)
 
-1. Install dependencies:
+🔹 1. Install dependencies:
    - pip install -r requirements.txt
 
-2. (Colab) Mount Google Drive:
+🔹 2. (Colab) Mount Google Drive:
    - from google.colab import drive; drive.mount('/content/drive')
 
-3. Prepare the dataset.
+🔹 3. Prepare the dataset.
+   - Dataset used for AgeLoRA in this link "https://github.com/JingchunCheng/All-Age-Faces-Dataset"
+   - Dataset used for IdentityLoRA that you can prepared yourself with 20-30 self-images.
+   - Create a dataset in the folder format of Diffusers==0.36.0.dev0.
+              AAF_LoRA_Dataset/
+         │
+         ├── metadata.jsonl                ← file chứa chú thích (caption) cho từng ảnh
+         │
+         ├── 00001.png                     ← ảnh 1
+         ├── 00002.png                     ← ảnh 2
+         ├── 00003.png                     ← ảnh 3
+         ├── ...
+         │
+         └── (các ảnh .jpg / .png khác...)
 
-4. Generate captions JSON (age buckets):
+
+🔹 4. Generate captions JSON (age buckets):
    -  Run the cell “Make ages_caption json” in src/CV_PTIT.ipynb → produces AAF_age_gender_caption_dataset.json.
      
-5. Create dataset format for Diffusers:
+🔹 5. Create dataset format for Diffusers:
    - Run the cell “Make age_lora_dataset…” → copy images into /content/AAF_LoRA_Dataset and generate metadata.jsonl
 
-6. Train LoRA adapters:
+🔹 6. Train LoRA adapters:
    - accelerate launch examples/text_to_image/train_text_to_image_lora.py \
   --train_data_dir=/content/AAF_LoRA_Dataset \
   --output_dir=/content/drive/MyDrive/CV_PTIT/age_lora \
@@ -72,13 +86,13 @@ Given an **input image** and an **age prompt** (e.g., *“Person A at 60 years o
 
    - Identity-LoRA: trained similarly, but using the identity recognition dataset for --train_data_dir.
 
-8. Inference & adapter combination:
+🔹 8. Inference & adapter combination:
    - Load pipeline, load_lora_weights for age and id, then pipe.set_adapters(["id","age"], adapter_weights=[1.0,0.2]); call pipe(prompt,...)
 
-9. Inpainting (optional):
+🔹 9. Inpainting (optional):
    - Making mask (edit white space) → Use StableDiffusionInpaintPipeline, load adapters, pipe(prompt, image=image, mask_image=mask, ...)
      
-10. Experimentation & tips:
+🔹 10. Experimentation & tips:
    - Adjust adapter_weights to balance identity preservation vs aging effect.
    - Use fp16 + xformers + bitsandbytes to save VRAM.
    - Always verify metadata.jsonl before training.
