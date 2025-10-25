@@ -44,7 +44,7 @@ Given an **input image** and an **age prompt** (e.g., *“Person A at 60 years o
 ### 🔹 5. Output
 - Produces a high-fidelity, **age-modified image** that maintains both **identity integrity** and **visual realism**.
 
-> **Figure:** Overview of the LIDA pipeline — integrating Age-LoRA and Identity-LoRA modules within Stable Diffusion 1.5 for identity-consistent facial aging.
+> **Figure:** Overview of the LIDA pipeline can be founded in "docs/Biểu đồ không có tiêu đề.drawio.png".
 
 ---
 
