@@ -19,14 +19,10 @@ At inference, both adapters are combined with adjustable weights to generate rea
 
 ## 🧩 Architecture
 
-## 🧠 Model Pipeline
-# Identity-preserving Diffusion Aging (IDA)
 
 ## 🧠 Model Pipeline
 <p align="center">
   <img src="docs/Biểu đồ không có tiêu đề.drawio.png" width="600">
 </p>
 
-## 🎯 Results
-![Results](images/results.png)
 
