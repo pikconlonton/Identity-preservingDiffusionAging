@@ -1,0 +1,66 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" version="28.2.7">
+  <diagram name="Trang-1" id="Fj4w75BQuALC5c4DY5P6">
+    <mxGraphModel dx="1236" dy="569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PD_yIvm3jW1wvU4O28uP-1" target="PD_yIvm3jW1wvU4O28uP-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-1" value="&lt;div&gt;Dữ liệu đầu vào&amp;nbsp;&lt;/div&gt;&lt;div&gt;(Ảnh người A, prompt N năm)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="44" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PD_yIvm3jW1wvU4O28uP-2" target="PD_yIvm3jW1wvU4O28uP-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="270" />
+              <mxPoint x="560" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PD_yIvm3jW1wvU4O28uP-2" target="PD_yIvm3jW1wvU4O28uP-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PD_yIvm3jW1wvU4O28uP-2" target="PD_yIvm3jW1wvU4O28uP-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-2" value="Xử lý và Tiền xử lý dữ liệu (mask + caption)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="154" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PD_yIvm3jW1wvU4O28uP-3" target="PD_yIvm3jW1wvU4O28uP-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-3" value="Age-LoRA&lt;div&gt;(học tuổi)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PD_yIvm3jW1wvU4O28uP-4" target="PD_yIvm3jW1wvU4O28uP-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-4" value="Identity-LoRA&lt;div&gt;(học &#39;&#39;khuôn mặt&quot;)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PD_yIvm3jW1wvU4O28uP-5" target="PD_yIvm3jW1wvU4O28uP-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-5" value="VAE + CLIP&lt;div&gt;(lantent/text emb)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="657.5" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PD_yIvm3jW1wvU4O28uP-6" target="PD_yIvm3jW1wvU4O28uP-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-6" value="Stable Diffusion 1.5 Unet&lt;div&gt;((denoising latent, cross-attn LoRA))&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="435" y="450" width="250" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PD_yIvm3jW1wvU4O28uP-7" target="PD_yIvm3jW1wvU4O28uP-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-7" value="&lt;div&gt;Inpainting Conditioning&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(ảnh gốc + mask + noise z_t)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="462.5" y="620" width="195" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PD_yIvm3jW1wvU4O28uP-8" value="Output&lt;div&gt;(Ảnh đã chỉnh tuổi)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="740" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
