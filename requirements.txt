@@ -1,0 +1,13 @@
+diffusers==0.30.0
+transformers>=4.30.0
+accelerate>=0.20.3
+safetensors
+bitsandbytes
+xformers
+torch>=2.0.0
+torchvision
+opencv-python
+matplotlib
+Pillow
+huggingface-hub
+tqdm
