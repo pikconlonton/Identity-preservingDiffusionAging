@@ -23,34 +23,62 @@ The **LIDA** framework introduces a diffusion-based architecture that performs *
 
 Given an **input image** and an **age prompt** (e.g., *“Person A at 60 years old”*), the model processes data through the following stages:
 
-### 🔹 1. Data Preprocessing
+🔹 1. Data Preprocessing
 - Generates **masks** and **captions** for each input image to provide detailed conditioning information.  
 - Prepares data for **inpainting** and **cross-attention** fine-tuning.
 
-### 🔹 2. Dual LoRA Modules
+🔹 2. Dual LoRA Modules
 - **🧓 Age-LoRA:** Learns age-related patterns such as wrinkles, facial texture, and bone structure to enable realistic aging effects.  
 - **🪞 Identity-LoRA:** Learns unique identity embeddings to preserve personal facial characteristics across transformations.  
 
 > Both LoRA modules are fine-tuned independently and combined during inference for balanced and controllable outputs.
 
-### 🔹 3. Stable Diffusion 1.5 Backbone
+🔹 3. Stable Diffusion 1.5 Backbone
 - Both LoRA adapters are integrated into the **cross-attention layers** of the **UNet** in Stable Diffusion 1.5.  
 - Enables **joint conditioning** on *age* and *identity* during the **denoising process**, enhancing realism and identity consistency.
 
-### 🔹 4. Inpainting Conditioning
+🔹 4. Inpainting Conditioning
 - Combines the **original image**, **mask**, and **noise latent** \(z_t\) to perform localized edits.  
 - Ensures smooth blending between modified (aged) regions and the unedited parts of the image.
 
-### 🔹 5. Output
+🔹 5. Output
 - Produces a high-fidelity, **age-modified image** that maintains both **identity integrity** and **visual realism**.
 
 > **Figure:** Overview of the LIDA pipeline can be founded in "docs/ModelPipeline.drawio.png".
 
 ---
 
-## ⚙️ Installation
+## ⚡ Quick Run (Summary)
 
-```bash
-git clone https://github.com/<your-username>/LIDA.git
-cd LIDA
-pip install -r requirements.txt
+1. Install dependencies:
+   - pip install -r requirements.txt
+
+2. (Colab) Mount Google Drive:
+   - from google.colab import drive; drive.mount('/content/drive')
+
+3. Prepare the dataset.
+
+4. Generate captions JSON (age buckets):
+   -  Run the cell “Make ages_caption json” in src/CV_PTIT.ipynb → produces AAF_age_gender_caption_dataset.json.
+     
+5. Create dataset format for Diffusers:
+   - Run the cell “Make age_lora_dataset…” → copy images into /content/AAF_LoRA_Dataset and generate metadata.jsonl
+
+6. Train LoRA adapters:
+   - accelerate launch examples/text_to_image/train_text_to_image_lora.py \
+  --train_data_dir=/content/AAF_LoRA_Dataset \
+  --output_dir=/content/drive/MyDrive/CV_PTIT/age_lora \
+  ... (parameters: resolution, batch_size, lr, max_train_steps, rank, mixed_precision)
+
+   - Identity-LoRA: trained similarly, but using the identity recognition dataset for --train_data_dir.
+
+8. Inference & adapter combination:
+   - Load pipeline, load_lora_weights for age and id, then pipe.set_adapters(["id","age"], adapter_weights=[1.0,0.2]); call pipe(prompt,...)
+
+9. Inpainting (optional):
+   - Making mask (edit white space) → Use StableDiffusionInpaintPipeline, load adapters, pipe(prompt, image=image, mask_image=mask, ...)
+     
+10. Experimentation & tips:
+   - Adjust adapter_weights to balance identity preservation vs aging effect.
+   - Use fp16 + xformers + bitsandbytes to save VRAM.
+   - Always verify metadata.jsonl before training.
