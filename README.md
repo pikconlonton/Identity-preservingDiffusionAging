@@ -19,4 +19,4 @@ At inference, both adapters are combined with adjustable weights to generate rea
 
 ## 🧩 Architecture
 
-![Model Architecture](images/model_architecture.png)
+![Model Architecture](docs/Biểu đồ không có tiêu đề.drawio.png)
