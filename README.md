@@ -60,17 +60,18 @@ Given an **input image** and an **age prompt** (e.g., *“Person A at 60 years o
    - Dataset used for AgeLoRA in this link "https://github.com/JingchunCheng/All-Age-Faces-Dataset"
    - Dataset used for IdentityLoRA that you can prepared yourself with 20-30 self-images.
    - Create a dataset in the folder format of Diffusers==0.36.0.dev0.
-AAF_LoRA_Dataset/
-│
-├── metadata.jsonl                ← text metadata file (one JSON record per image)
-│
-├── 00001.png                     ← training image #1
-├── 00002.png                     ← training image #2
-├── 00003.png                     ← training image #3
-├── ...
-│
-└── (other .jpg / .png images)
-
+     ```
+      AAF_LoRA_Dataset/
+      │
+      ├── metadata.jsonl                ← text metadata file (one JSON record per image)
+      │
+      ├── 00001.png                     ← training image #1
+      ├── 00002.png                     ← training image #2
+      ├── 00003.png                     ← training image #3
+      ├── ...
+      │
+      └── (other .jpg / .png images)
+      ```
 
 🔹 4. Generate captions JSON (age buckets):
    -  Run the cell “Make ages_caption json” in src/CV_PTIT.ipynb → produces AAF_age_gender_caption_dataset.json.
