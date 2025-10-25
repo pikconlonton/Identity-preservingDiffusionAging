@@ -97,3 +97,21 @@ Given an **input image** and an **age prompt** (e.g., *“Person A at 60 years o
    - Adjust adapter_weights to balance identity preservation vs aging effect.
    - Use fp16 + xformers + bitsandbytes to save VRAM.
    - Always verify metadata.jsonl before training.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is for educational and research purposes. Please cite relevant papers when using this code.
+
+## References
+
+- SelfAge: Personalized Facial Age Transformation Using Self-reference Images (by Taishi Ito, Yuki Endo, Yoshihiro Kanamori) 
+- Deep Face Age Progression: A Survey (Grimmer & Ramachandra, 2025)
+- Concept Sliders: LoRA Adaptors for Precise Control in Diffusion Models (Gandikota, Rohit and Materzyńska, Joanna and Zhou, Tingrui and Torralba, Antonio and Bau, David, 2024)
